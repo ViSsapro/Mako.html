@@ -1,0 +1,504 @@
+<html lang="en-US">
+<head>
+    <title>Vimukthi thuhina</title>
+    
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/4ZnLFM0W/IMG-20260724-WA0057.jpg">
+
+    <!-- Square/Tech Style Font Import (Orbitron) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Global Font Application */
+        body, button, input, table, th, td, h1, h2, h3, h4, p, a, span {
+            font-family: 'Orbitron', sans-serif !important;
+            letter-spacing: 0.5px;
+        }
+
+        /* Running Border Animation */
+        @keyframes moveBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Top Navigation Bar */
+        .navbar {
+            width: 100%;
+            background-color: #111;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: flex-end;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Running White Border for Menu Button */
+        .menu-open-btn {
+            background: linear-gradient(#111, #111) padding-box,
+                        linear-gradient(45deg, #ffffff, #666666, #ffffff, #888888) border-box;
+            color: #ffffff;
+            padding: 8px 18px;
+            font-size: 16px;
+            font-weight: bold;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            background-size: 300% 300%;
+            animation: moveBorder 3s infinite linear;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-open-btn:hover {
+            background: #ffffff;
+            color: #000;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Sidebar Navigation Drawer */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            right: 0;
+            background-color: #111111;
+            overflow-x: hidden;
+            transition: 0.4s;
+            padding-top: 60px;
+            border-left: 2px solid #ffffff;
+            box-shadow: -5px 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .sidebar a {
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .sidebar a:hover {
+            color: #ffffff;
+            background-color: #222222;
+            padding-left: 35px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            color: #ffffff;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 99;
+        }
+
+        /* White Running Border Box for Steps */
+        .steps-box {
+            position: relative;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 12px;
+            background: linear-gradient(#000, #000) padding-box,
+                        linear-gradient(45deg, #ffffff, #666666, #ffffff, #888888) border-box;
+            border: 3px solid transparent;
+            background-size: 300% 300%;
+            animation: moveBorder 3s infinite linear;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Image Outer Wrapper */
+        .profile-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #ffffff, #555555, #ffffff);
+            background-size: 300% 300%;
+            animation: moveBorder 3s infinite linear;
+            padding: 5px;
+            margin: 20px 0;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Messages Neon Box */
+        .welcome-box {
+            position: relative;
+            padding: 15px;
+            margin: 25px 0;
+            border-radius: 12px;
+            background: linear-gradient(#000, #000) padding-box,
+                        linear-gradient(45deg, #ffffff, #666666, #ffffff) border-box;
+            border: 3px solid transparent;
+            background-size: 300% 300%;
+            animation: moveBorder 3s infinite linear;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .welcome-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .welcome-box li h1, 
+        .welcome-box li h2, 
+        .welcome-box li h3, 
+        .welcome-box li h4 {
+            margin: 8px 0;
+        }
+
+        /* Services Box & Neon Border */
+        .services-box {
+            position: relative;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 12px;
+            background: linear-gradient(#000, #000) padding-box,
+                        linear-gradient(45deg, #ffffff, #666666, #ffffff) border-box;
+            border: 3px solid transparent;
+            background-size: 300% 300%;
+            animation: moveBorder 3s infinite linear;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .box-title {
+            color: #ffffff;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        .services-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .services-table th {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 10px;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        .services-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ddd;
+        }
+
+        .services-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- TWO SEPARATE NEON BOXES SECTION --- */
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .neon-card {
+            flex: 1;
+            position: relative;
+            padding: 20px 15px;
+            border-radius: 12px;
+            background: linear-gradient(#000, #000) padding-box,
+                        linear-gradient(45deg, #ffffff, #666666, #ffffff) border-box;
+            border: 3px solid transparent;
+            background-size: 300% 300%;
+            animation: moveBorder 3s infinite linear;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .neon-card .pair-btn {
+            width: 100%;
+            padding: 12px 10px;
+            font-size: 14px;
+        }
+
+        .button-desc {
+            font-size: 12px;
+            color: #bbb;
+            margin-top: 12px;
+            margin-bottom: 0;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 650px) {
+            .buttons-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        /* Common Button Styling */
+        .pair-btn {
+            background: linear-gradient(135deg, #ffffff, #888888);
+            color: #000000;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+            outline: none;
+            text-transform: uppercase;
+        }
+
+        .pair-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.8);
+            background: linear-gradient(135deg, #ffffff, #aaaaaa);
+        }
+
+        .pair-btn:active {
+            transform: translateY(1px);
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            cursor: default;
+            user-select: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        button, a {
+            cursor: pointer;
+        }
+
+        /* About Section Box Styling */
+        #about-page {
+            display: none;
+            background-color: #111;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #ffffff;
+            margin-top: 20px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .back-btn {
+            background-color: #333;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        /* Footer Styling */
+        .developer-credit {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #888888;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .developer-credit span {
+            color: #ffffff;
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        .contact-info {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #aaaaaa;
+        }
+
+        .contact-info span {
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <button class="menu-open-btn" onclick="openNav()">☰ Menu</button>
+    </nav>
+
+    <!-- Side Navigation Menu -->
+    <div id="mySidebar" class="sidebar">
+        <button class="close-btn" onclick="closeNav()">×</button>
+        <a onclick="showPage('home'); closeNav();">🏠 Home</a>
+        <a onclick="showPage('about'); closeNav();">ℹ️ About Us</a>
+    </div>
+
+    <div id="myOverlay" class="overlay" onclick="closeNav()"></div>
+
+    <div class="main-content">
+        
+        <div id="home-page">
+            <h1 class="neon-text" style="color: #ffffff;">Dark tech zoon</h1>
+
+            <!-- Steps Section Inside White Running Border Box -->
+            <div class="steps-box">
+                <h1 style="color:#ffffff; margin-top:0;">how to pair black queen md</h1>
+                <h2 style="color:#ffffff"><i>steps</i></h2>
+                <h3 style="color:#ffffff">01.click pair button</h3>
+                <h3 style="color:#ffffff">02.enter your whatsapp number</h3>
+                <h3 style="color:#ffffff">03.click get code buttton</h3>
+                <h3 style="color:#ffffff">04.copy code and link your whatsapp</h3>
+            </div>
+
+            <div class="profile-container">
+                <img src="https://i.ibb.co/qYWc2WbJ/IMG-20260725-WA0011-1.jpg" alt="black queen md" class="profile-img">
+            </div>
+
+            <div class="welcome-box">
+                <ul>
+                    <li><h1 style="color:#ffffff"><i>welcome to black queen md site</i></h1></li>
+                </ul>
+            </div>
+
+            <div class="services-box">
+                <h2 class="box-title">Our Services & Prices</h2>
+                <table class="services-table">
+                    <tr>
+                        <th>Service</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr>
+                        <td>Web devalopment</td>
+                        <td>Rs. 700+your choice value</td>
+                    </tr>
+                    <tr>
+                        <td>Bug Fixing & Customization</td>
+                        <td>Rs. 700+your erro value</td>
+                    </tr>
+                    <tr>
+                        <td>custom whatsapp bot devalopment</td>
+                        <td>Rs. 1700+your choice value</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="buttons-container">
+                <div class="neon-card">
+                    <button class="pair-btn" onclick="handleButtonClick()">pair black queen md</button>
+                    <p class="button-desc">Click here to generate your WhatsApp pairing code easily and link your device.</p>
+                </div>
+
+                <div class="neon-card">
+                    <button class="pair-btn" onclick="handleSecondButtonClick()">Get Support / Group</button>
+                    <p class="button-desc">Join our official support group to get quick help and latest updates.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="about-page">
+            <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+            <h2 style="color: #ffffff;">About Us - Black Queen MD</h2>
+            <p>Welcome to the official <b>Black Queen MD</b> platform!</p>
+            <p>We provide automated services, bot solutions, and tech scripts for cyber enthusiasts. Our goal is to make WhatsApp automation easier and reliable for everyone.</p>
+            <h3>Features:</h3>
+            <ul>
+                <li style="color: #ffffff;">Fast & Secure Pairing System</li>
+                <li style="color: #ffffff;">24/7 Uptime Support</li>
+                <li style="color: #ffffff;">User-Friendly Dashboard</li>
+            </ul>
+        </div>
+
+        <footer class="developer-credit">
+            Developed by <span>vimukthi thuhina & dineth nimsara</span>
+            <div class="contact-info">
+                Contact: <span>+94701153310<br>+94761846512</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+
+        function showPage(pageName) {
+            let homePage = document.getElementById("home-page");
+            let aboutPage = document.getElementById("about-page");
+
+            if (pageName === 'about') {
+                homePage.style.display = "none";
+                aboutPage.style.display = "block";
+            } else {
+                homePage.style.display = "block";
+                aboutPage.style.display = "none";
+            }
+        }
+
+        let clickCount = 0;
+        function handleButtonClick() {
+            clickCount++;
+
+            if (clickCount <= 3) {
+                window.open("https://www.effectivecpmnetwork.com/wi7ywy7p?key=54d1588bdb4620b9a6b7cf5d34b797c6", "_blank");
+            } else {
+                window.open("https://dtz-queen.onrender.com", "_blank");
+                clickCount = 0;
+            }
+        }
+
+        function handleSecondButtonClick() {
+            window.open("https://whatsapp.com/channel/0029VbDMD62HFxP3vyIsNo15", "_blank");
+        }
+    </script>
+
+</body>
+</html>
